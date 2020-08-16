@@ -16,8 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','CustomerController@home');
 
 Route::prefix('customer')->group(function(){
-    Route::get('login','CustomerController@login')->name('customer-login');
+    Route::get('login','CustomerController@login')->name('customer-login')->middleware('customer');
     Route::get('logout','CustomerController@logout')->name('customer-logout');
+});
+Route::prefix('admin')->group(function(){
+    Route::get('login','AdminController@login')->name('admin');
+    Route::post('login','AdminController@login')->name('admin-login');
+    Route::group(['middleware' => ['admin']],function(){
+        Route::get('home','AdminController@home');
+    });
 });
 Route::get('login/facebook', 'CustomerController@fb_redirectToProvider')->name('login-facebook');
 Route::get('login/facebook/callback', 'CustomerController@fb_handleProviderCallback');

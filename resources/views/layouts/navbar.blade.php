@@ -14,7 +14,7 @@
         @if(Auth::guard('customer')->check())
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ Auth::guard('customer')->user()->customer_fullname }}
+                    {{ ucwords(Auth::guard('customer')->user()->customer_fullname) }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                  <a class="dropdown-item" href="{{ route('customer-logout') }}">Logout</a>

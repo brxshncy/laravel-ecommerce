@@ -14,7 +14,7 @@ Laravel Ecommerce
                 <div class="card-header">
                     Login
                 </div>
-                <div class="card-body">
+                <div class="card-body p-4">
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
@@ -28,10 +28,10 @@ Laravel Ecommerce
                             <button class="btn btn-warning mt-4">Login</button>
                             <small>or login with,</small>
                             <a href="{{ route('login-facebook') }}">
-                                <button class="btn btn-primary mt-3">Login With Facebook</button>
+                                <button class="btn btn-primary mt-3 btn-block">Login With Facebook</button>
                             </a>
                             <a href="{{ route('login-google') }}">
-                                <button class="btn btn-danger mt-2">Login With Facebook</button>
+                                <button class="btn btn-danger mt-2 btn-block">Login With Facebook</button>
                             </a>
                             
                         </div>                        
