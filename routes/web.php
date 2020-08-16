@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/','CustomerController@home');
+
+Route::prefix('customer')->group(function(){
+    Route::get('login','CustomerController@login')->name('customer-login');
+    Route::get('logout','CustomerController@logout')->name('customer-logout');
 });
+Route::get('login/facebook', 'CustomerController@fb_redirectToProvider')->name('login-facebook');
+Route::get('login/facebook/callback', 'CustomerController@fb_handleProviderCallback');
+Route::get('login/google', 'CustomerController@google_redirectToProvider')->name('login-google');
+Route::get('login/google/callback', 'CustomerController@google_handleProviderCallback');
