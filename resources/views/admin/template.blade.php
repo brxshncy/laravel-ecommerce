@@ -3,7 +3,7 @@
 Admin | Dashboard
 @endsection
 @php
-    $section = 'home';
+    $section = '';
 @endphp
 @include('layouts.admin-navbar')
 @section('content')

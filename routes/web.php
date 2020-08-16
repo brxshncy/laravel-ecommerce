@@ -23,7 +23,9 @@ Route::prefix('admin')->group(function(){
     Route::get('login','AdminController@login')->name('admin');
     Route::post('login','AdminController@login')->name('admin-login');
     Route::group(['middleware' => ['admin']],function(){
-        Route::get('home','AdminController@home');
+        Route::get('home','AdminController@home')->name('a-home');
+        Route::get('product','ProductController@index')->name('a-product');
+        Route::get('categories','ProductController@categories')->name('a-categories');
     });
 });
 Route::get('login/facebook', 'CustomerController@fb_redirectToProvider')->name('login-facebook');
